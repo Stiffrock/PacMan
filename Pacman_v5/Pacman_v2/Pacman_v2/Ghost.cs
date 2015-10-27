@@ -83,12 +83,12 @@ namespace Pacman_v2
 
         void GoToNextNode()
        {
-            
-           targetNode = path[pathLeft];
            if (pathLeft != 0)
            {
                --pathLeft;
            }
+           targetNode = path[pathLeft];
+       
         
            MoveToTargetNode();
            Console.WriteLine("GoToNextNode");
@@ -109,7 +109,7 @@ namespace Pacman_v2
                 rec.X += (int)direction.Y;
                 rec.Y += (int)direction.X;
                 counter += 1;
-                Console.WriteLine(counter); 
+
             }
      
             if (counter == 19 && pathLeft != 0)
@@ -117,7 +117,7 @@ namespace Pacman_v2
                 currentNode = targetNode;
                 GoToNextNode();
                 counter = 0;
-                Console.WriteLine(direction.X);
+                Console.WriteLine(pathLeft.ToString());
             }
 
          /*   if (currentNode == targetNode)

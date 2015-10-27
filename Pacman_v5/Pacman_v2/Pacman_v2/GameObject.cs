@@ -147,7 +147,7 @@ namespace Pacman_v2
 
         public virtual void CheckDirCol(List<Tile> list) //Check if pacmans direction collides with wall
         {
-        /*    foreach (Tile item in list)
+            foreach (Tile item in list)
             {
                 if (rec.Intersects(item.rec))
                 {
@@ -172,7 +172,7 @@ namespace Pacman_v2
                         SetDirection(Direction.Stop);
                     }
                 }
-            }*/
+            }
         }
     }
 }

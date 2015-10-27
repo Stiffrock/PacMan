@@ -62,48 +62,48 @@ namespace Pacman_v2
             for (int i = 0; i < list.Count; i++)
             {
                 for (int j = 0; j < list[i].Length; j++)
-                {           
+                {
                     if (list[i][j] == 'x')
                     {
                         nodeArray[i, j] = new Node(false, i, j);
-                        wallList.Add(new Wall_Tile(tex2, new Vector2((j * 20) + 150, (i * 20) + 50)));
+                        wallList.Add(new Wall_Tile(tex2, new Vector2((j * 20), (i * 20))));
                     }
                     if (list[i][j] == 'f')
                     {
                         nodeArray[i, j] = new Node(true, i, j);
-                        floorList.Add(new Food_Tile(tex3, new Vector2((j * 20) + 150, (i * 20) + 50)));
+                        floorList.Add(new Food_Tile(tex3, new Vector2((j * 20), (i * 20))));
                     }
                     if (list[i][j] == 's')
                     {
                         nodeArray[i, j] = new Node(true, i, j);
-                        floorList.Add(new Food_Tile(tex2, new Vector2((j * 20) + 150, (i * 20) + 50)));
-                        specialWall.Add(new Food_Tile(tex2, new Vector2((j * 20) + 150, (i * 20) + 50)));
+                        floorList.Add(new Food_Tile(tex2, new Vector2((j * 20), (i * 20))));
+                        specialWall.Add(new Food_Tile(tex2, new Vector2((j * 20), (i * 20))));
                     }
                     if (list[i][j] == 'b')
                     {
                         nodeArray[i, j] = new Node(true, i, j);
-                        floorList.Add(new Bonus_Tile(tex1, new Vector2((j * 20) + 150, (i * 20) + 50)));
-                        bonusList.Add(new Bonus_Tile(tex1, new Vector2((j * 20) + 150, (i * 20) + 50)));
+                        floorList.Add(new Bonus_Tile(tex1, new Vector2((j * 20), (i * 20))));
+                        bonusList.Add(new Bonus_Tile(tex1, new Vector2((j * 20), (i * 20))));
                     }
                     if (list[i][j] == 'u')
                     {
                         nodeArray[i, j] = new Node(true, i, j);
-                        floorList.Add(new Uber_Tile(tex1, new Vector2((j * 20) + 150, (i * 20) + 50)));
-                        uberList.Add(new Uber_Tile(tex1, new Vector2((j * 20) + 150, (i * 20) + 50)));
+                        floorList.Add(new Uber_Tile(tex1, new Vector2((j * 20), (i * 20))));
+                        uberList.Add(new Uber_Tile(tex1, new Vector2((j * 20), (i * 20))));
                     }
                     if (list[i][j] == 'g')
                     {
                         nodeArray[i, j] = new Node(true, i, j);
-                        ghost = new Ghost(tex1, new Vector2((j * 20) + 150, (i * 20) + 50)); 
+                        ghost = new Ghost(tex1, new Vector2((j * 20), (i * 20)));
                         ghostList.Add(ghost);
                         objectList.Add(ghost);
                     }
                     if (list[i][j] == 'p')
                     {
                         nodeArray[i, j] = new Node(true, i, j);
-                        pacman = new Pacman(tex1, new Vector2((j * 20) + 150, (i * 20) + 50));
-                        objectList.Add(pacman);                       
-                    }
+                        pacman = new Pacman(tex1, new Vector2((j * 20), (i * 20)));
+                        objectList.Add(pacman);
+                    }                 
                 }
             }
             Ghost g = (Ghost)ghostList[0];

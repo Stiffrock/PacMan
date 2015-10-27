@@ -7,9 +7,6 @@ namespace Pacman_v2
 {
     static class pathFinder
     {
-
-
-
         static private List<Node> GetNeighbours(Node node)
         {
             List<Node> neighbours = new List<Node>();
