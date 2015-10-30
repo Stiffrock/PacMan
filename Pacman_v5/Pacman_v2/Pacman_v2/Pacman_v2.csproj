@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bonus_Tile.cs" />
+    <Compile Include="Camera.cs" />
     <Compile Include="Food_Tile.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Ghost.cs" />

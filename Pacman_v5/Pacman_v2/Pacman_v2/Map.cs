@@ -31,11 +31,13 @@ namespace Pacman_v2
         public GameObject ghost, pacman;
         public StreamReader streamReader;     
         public SpriteFont spriteFont;
-        public int maxScore; 
+        public int maxScore;
+        Camera cam;
         String StatusAlert;
+        GameWindow gameWindow;
 
 
-        public Map(Texture2D tex1, Texture2D tex2, Texture2D tex3, List<String> list, SpriteFont spriteFont)
+        public Map(Texture2D tex1, Texture2D tex2, Texture2D tex3, List<String> list, SpriteFont spriteFont, GraphicsDevice graphics)
         {
             this.tex1 = tex1;
             this.tex2 = tex2;
@@ -44,6 +46,7 @@ namespace Pacman_v2
             this.maxScore = floorList.Count();
             this.spriteFont = spriteFont;
             this.streamReader = new StreamReader("map.txt");
+            cam = new Camera(graphics.Viewport);
         }
 
         protected void ReadString(List<String> list) // Reads textfile and adds it to a list
@@ -57,7 +60,7 @@ namespace Pacman_v2
         public void CreateMap(List<String> list) // Reads the textfile and creates a tile or gameobject
         {
             ReadString(list);
-
+            int Cost = 1;
             nodeArray = new Node[list.Count, list[1].Length];
             for (int i = 0; i < list.Count; i++)
             {
@@ -65,42 +68,42 @@ namespace Pacman_v2
                 {
                     if (list[i][j] == 'x')
                     {
-                        nodeArray[i, j] = new Node(false, i, j);
+                        nodeArray[i, j] = new Node(false, Cost, i, j);
                         wallList.Add(new Wall_Tile(tex2, new Vector2((j * 20), (i * 20))));
                     }
                     if (list[i][j] == 'f')
                     {
-                        nodeArray[i, j] = new Node(true, i, j);
+                        nodeArray[i, j] = new Node(true, Cost, i, j);
                         floorList.Add(new Food_Tile(tex3, new Vector2((j * 20), (i * 20))));
                     }
                     if (list[i][j] == 's')
                     {
-                        nodeArray[i, j] = new Node(true, i, j);
+                        nodeArray[i, j] = new Node(true, Cost, i, j);
                         floorList.Add(new Food_Tile(tex2, new Vector2((j * 20), (i * 20))));
                         specialWall.Add(new Food_Tile(tex2, new Vector2((j * 20), (i * 20))));
                     }
                     if (list[i][j] == 'b')
                     {
-                        nodeArray[i, j] = new Node(true, i, j);
+                        nodeArray[i, j] = new Node(true, Cost, i, j);
                         floorList.Add(new Bonus_Tile(tex1, new Vector2((j * 20), (i * 20))));
                         bonusList.Add(new Bonus_Tile(tex1, new Vector2((j * 20), (i * 20))));
                     }
                     if (list[i][j] == 'u')
                     {
-                        nodeArray[i, j] = new Node(true, i, j);
+                        nodeArray[i, j] = new Node(true, Cost, i, j);
                         floorList.Add(new Uber_Tile(tex1, new Vector2((j * 20), (i * 20))));
                         uberList.Add(new Uber_Tile(tex1, new Vector2((j * 20), (i * 20))));
                     }
                     if (list[i][j] == 'g')
                     {
-                        nodeArray[i, j] = new Node(true, i, j);
+                        nodeArray[i, j] = new Node(true, Cost, i, j);
                         ghost = new Ghost(tex1, new Vector2((j * 20), (i * 20)));
                         ghostList.Add(ghost);
                         objectList.Add(ghost);
                     }
                     if (list[i][j] == 'p')
                     {
-                        nodeArray[i, j] = new Node(true, i, j);
+                        nodeArray[i, j] = new Node(true, Cost, i, j);
                         pacman = new Pacman(tex1, new Vector2((j * 20), (i * 20)));
                         objectList.Add(pacman);
                     }                 
@@ -148,9 +151,12 @@ namespace Pacman_v2
 
         public void Draw(SpriteBatch spriteBatch) 
         {
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, cam.GetTransform());  
+  
             DrawText(spriteBatch);
             Menu(spriteBatch);
             DrawMap(spriteBatch);
+            spriteBatch.End();
         }
         public void ClearMap()
         {
@@ -206,6 +212,7 @@ namespace Pacman_v2
         }
         public void Update(GameTime gameTime)
         {
+            cam.Update(new Vector2((int)pacman.rec.X, (int)pacman.rec.Y), gameWindow);
             StateHandler();
             StateEffect();
             pacman.CheckSpecialCol(specialWall);
@@ -218,6 +225,10 @@ namespace Pacman_v2
                 item.Update();
                 item.SpriteTimer(gameTime);
                 item.CheckDirCol(wallList);
+            }
+            foreach (Ghost item in ghostList)
+            {
+                item.PacPos = pacman.getNode();
             }
         }
 

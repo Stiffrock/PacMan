@@ -27,7 +27,8 @@ namespace Pacman_v2
         public int score;
         public int bonusscore;
         public int lifeCount;
-        
+        public Node PacPos;
+
         
         public GameObject(Texture2D tex, Vector2 pos)
         {
@@ -44,6 +45,11 @@ namespace Pacman_v2
         public void SetDirection(Direction dir)
         {
             currentDirection = dir;
+        }
+                
+        public virtual Node getNode()
+        {
+            return null;
         }
 
         public virtual void SpriteTimer(GameTime gameTime)

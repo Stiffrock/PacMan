@@ -28,10 +28,10 @@ namespace Pacman_v2
             this.scale = 1;
             this.lifeCount = 3;
             this.srcRec = new Rectangle(16,0,16,16);
-            this.rec = new Rectangle((int)pos.X, (int)pos.Y, 16, 16);           
+            this.rec = new Rectangle((int)pos.X, (int)pos.Y, 16, 16);
         }
         
-        public Node getNode()
+        public override Node getNode()
         {
             int arrayIndexX = (int)(pos.X / 20);
             int arrayIndexY = (int)(pos.Y / 20);

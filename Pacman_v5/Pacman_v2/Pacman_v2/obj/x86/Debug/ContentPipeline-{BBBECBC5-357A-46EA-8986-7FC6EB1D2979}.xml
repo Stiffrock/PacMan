@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Stoffe\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\centerDot.xnb</Output>
-      <Time>2014-10-30T01:25:55+01:00</Time>
+      <Output>C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\centerDot.xnb</Output>
+      <Time>2015-10-30T13:25:52.5815801+01:00</Time>
     </Item>
     <Item>
       <Source>SpriteSheet.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Stoffe\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\SpriteSheet.xnb</Output>
-      <Time>2014-10-30T01:26:06+01:00</Time>
+      <Output>C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\SpriteSheet.xnb</Output>
+      <Time>2015-10-30T13:25:52.5805791+01:00</Time>
     </Item>
     <Item>
       <Source>wallTile.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Stoffe\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\wallTile.xnb</Output>
-      <Time>2014-11-02T21:59:03+01:00</Time>
+      <Output>C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\wallTile.xnb</Output>
+      <Time>2015-10-30T13:25:53.2076654+01:00</Time>
     </Item>
     <Item>
       <Source>SpriteFont1.spritefont</Source>
@@ -34,8 +34,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Stoffe\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2014-11-03T03:04:36+01:00</Time>
+      <Output>C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2015-10-30T13:25:52.2634708+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -44,10 +44,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Stoffe\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2Content\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Stoffe\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Stoffe\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Stoffe\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -75,8 +75,8 @@
         <Value>2011-09-01T16:22:30+02:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2014-09-08T14:34:46.3837426+02:00</Value>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2014-08-18T15:31:39.322524+02:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

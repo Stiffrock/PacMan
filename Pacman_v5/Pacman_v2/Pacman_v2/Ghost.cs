@@ -24,6 +24,7 @@ namespace Pacman_v2
         int pathLeft;
         int counter;
 
+
         public Ghost(Texture2D tex, Vector2 pos) : base(tex, pos)
         {
             this.srcRec = new Rectangle(0, 16, 16, 16);
@@ -72,7 +73,24 @@ namespace Pacman_v2
         public void FindPath()
         {
             Node node = getNode();
-            path = pathFinder.FindPath(getNode(), Map.nodeArray[1,1]);
+            for (int i = 0; i < Map.nodeArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < Map.nodeArray.GetLength(1); j++)
+                {
+                    if (Map.nodeArray[i, j].passable == true)
+                    {
+                        targetNode = Map.nodeArray[i, j];
+                        if (targetNode == PacPos)
+                        {
+                            
+                        }
+                    }
+                }
+            }
+           
+            //path = pathFinder.FindPath(getNode(), Map.nodeArray[10, 1]);
+            path = pathFinder.FindPath(getNode(), targetNode);
+
             if (path == null)
                 return;
             pathLength = path.Count();

@@ -11,10 +11,10 @@ namespace Pacman_v2
     {
         public Node parent;
         public bool passable, visited;
-        public int X;
-        public int Y;
+        public int X, Y, Cost;
 
-        public Node(bool passable, int X, int Y)
+
+        public Node(bool passable, int Cost, int X, int Y)
         {
             this.passable = passable;
             this.X = X;

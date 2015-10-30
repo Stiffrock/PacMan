@@ -106,3 +106,13 @@ C:\Users\Stoffe\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\obj\x86\De
 C:\Users\Stoffe\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Stoffe\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\obj\x86\Debug\Pacman_v2.exe
 C:\Users\Stoffe\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\obj\x86\Debug\Pacman_v2.pdb
+C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\centerDot.xnb
+C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\SpriteSheet.xnb
+C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\wallTile.xnb
+C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Pacman_v2.exe
+C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\bin\x86\Debug\Pacman_v2.pdb
+C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\obj\x86\Debug\Pacman_v2.csprojResolveAssemblyReference.cache
+C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\obj\x86\Debug\Pacman_v2.exe
+C:\Users\Spellabbet\Documents\GitHub\PacMan\Pacman_v5\Pacman_v2\Pacman_v2\obj\x86\Debug\Pacman_v2.pdb

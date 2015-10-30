@@ -22,6 +22,7 @@ namespace Pacman_v2
         Texture2D spriteSheet;
         Texture2D wallTile;
         Texture2D food;
+
         Map map;
       
         public Game1()
@@ -44,7 +45,7 @@ namespace Pacman_v2
             wallTile = Content.Load<Texture2D>("wallTile");
             food = Content.Load<Texture2D>("centerDot");
             maptxt = new List<String>();
-            map = new Map(spriteSheet, wallTile, food, maptxt, spriteFont);
+            map = new Map(spriteSheet, wallTile, food, maptxt, spriteFont, GraphicsDevice);
             map.CreateMap(maptxt);               
         }
 
@@ -61,10 +62,11 @@ namespace Pacman_v2
 
         protected override void Draw(GameTime gameTime)
         {
+           
             GraphicsDevice.Clear(Color.Black);
-            spriteBatch.Begin();            
+                    
             map.Draw(spriteBatch);
-            spriteBatch.End();
+
             base.Draw(gameTime);
         }
     }
