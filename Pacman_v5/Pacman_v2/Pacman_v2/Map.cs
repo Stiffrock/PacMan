@@ -36,6 +36,9 @@ namespace Pacman_v2
         String StatusAlert;
         GameWindow gameWindow;
 
+        //debug
+         MouseState ms;
+         Vector2 mousePos;
 
         public Map(Texture2D tex1, Texture2D tex2, Texture2D tex3, List<String> list, SpriteFont spriteFont, GraphicsDevice graphics)
         {
@@ -110,6 +113,7 @@ namespace Pacman_v2
                 }
             }
             Ghost g = (Ghost)ghostList[0];
+            g.SetTarget(pacman);
             g.FindPath();
             maxScore = floorList.Count();
         }
@@ -152,11 +156,32 @@ namespace Pacman_v2
         public void Draw(SpriteBatch spriteBatch) 
         {
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, cam.GetTransform());  
-  
+       //     spriteBatch.Begin();
             DrawText(spriteBatch);
             Menu(spriteBatch);
             DrawMap(spriteBatch);
+
+
             spriteBatch.End();
+         /*   spriteBatch.Begin();
+
+            spriteBatch.DrawString(spriteFont, GetNodePosition(mousePos), new Vector2(0, 0), Color.White);
+            spriteBatch.DrawString(spriteFont, mousePos.X.ToString() + "," + mousePos.Y.ToString(), new Vector2(100, 100), Color.White);
+            spriteBatch.End();*/
+        }
+        public string GetNodePosition(Vector2 v)
+        {
+            int arrayIndexX = (int)(v.Y / 20);
+            int arrayIndexY = (int)(v.X / 20);
+
+            try
+            {
+                return arrayIndexX.ToString() + ", " + arrayIndexY.ToString();
+            }
+            catch (System.IndexOutOfRangeException)
+            {
+                return null;
+            }
         }
         public void ClearMap()
         {
@@ -230,6 +255,9 @@ namespace Pacman_v2
             {
                 item.PacPos = pacman.getNode();
             }
+
+            ms = Mouse.GetState();
+            mousePos = new Vector2(ms.X, ms.Y);
         }
 
 

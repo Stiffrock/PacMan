@@ -47,9 +47,19 @@ namespace Pacman_v2
             currentDirection = dir;
         }
                 
-        public virtual Node getNode()
+        public Node getNode()
         {
-            return null;
+            int arrayIndexX = (int)((rec.Y+5) / 20f);
+            int arrayIndexY = (int)((rec.X+5) / 20f);
+
+            try
+            {
+                return Map.nodeArray[arrayIndexX, arrayIndexY];
+            }
+            catch (System.IndexOutOfRangeException)
+            {
+                return null;
+            }
         }
 
         public virtual void SpriteTimer(GameTime gameTime)

@@ -6,7 +6,7 @@ using System.Text;
 namespace Pacman_v2
 {
     static class pathFinder
-    {
+    {     
         static private List<Node> GetNeighbours(Node node)
         {
             List<Node> neighbours = new List<Node>();
@@ -23,25 +23,39 @@ namespace Pacman_v2
             return neighbours;
         }
 
-        static public List<Node> FindPath(Node startNode, Node goalNode)
+        static void ResetNodes()
         {
+            foreach(Node n in Map.nodeArray)
+            {
+                n.visited = false;
+                n.parent = null;
+            }
+        }
+
+        static public MyStack FindPath(Node startNode, Node goalNode)
+        {
+            ResetNodes();
             Node currentNode = startNode;
             List<Node> candidates = new List<Node>();
             candidates.Add(currentNode);
+            MyStack pathStack = new MyStack();
 
             for (int a = 0; a < 1000; a++)
             {                    
                 if (currentNode == goalNode)
                 {
                     List<Node> path = new List<Node>();
+
                     for (int i = 0; i < 500; i++)
                     {
                         if (currentNode == startNode)
                             break;
-                        path.Add(currentNode);
+                        //path.Add(currentNode);
+                        pathStack.Push(currentNode);
                         currentNode = currentNode.parent;
                     }
-                    return path;
+                 //   return path;
+                    return pathStack;
                 }
 
                 List<Node> neighbours = GetNeighbours(currentNode);
@@ -57,6 +71,7 @@ namespace Pacman_v2
 
                 currentNode.visited = true;
                 candidates.Remove(currentNode);
+                if(candidates.Count > 0)
                 currentNode = candidates[0];
             }
             return null;

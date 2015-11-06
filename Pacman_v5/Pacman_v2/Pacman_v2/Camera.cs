@@ -37,7 +37,7 @@ namespace Pacman_v2
             //uppdaterar X position när pacman rör sig i områden som inte skulle röra kameran utanför banan(inte äpple xD)
             X = playerPos.X * zoom + 12 - windowSizeX / 2;
             //uppdaterar Y position när pacman rör sig i områden som inte skulle röra kameran utanför banan
-            Y = playerPos.Y * zoom + 12 - windowSizeY / 2;
+            Y = playerPos.Y * zoom + 150 - windowSizeY / 2;
       
             centre = new Vector2(X, Y);
 

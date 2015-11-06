@@ -30,14 +30,6 @@ namespace Pacman_v2
             this.srcRec = new Rectangle(16,0,16,16);
             this.rec = new Rectangle((int)pos.X, (int)pos.Y, 16, 16);
         }
-        
-        public override Node getNode()
-        {
-            int arrayIndexX = (int)(pos.X / 20);
-            int arrayIndexY = (int)(pos.Y / 20);
-
-            return Map.nodeArray[arrayIndexX, arrayIndexY];
-        }
 
         public override void SpriteTimer(GameTime gameTime)
         {

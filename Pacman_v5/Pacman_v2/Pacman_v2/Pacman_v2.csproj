@@ -77,6 +77,8 @@
     <Compile Include="Food_Tile.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Ghost.cs" />
+    <Compile Include="ListNode.cs" />
+    <Compile Include="MyStack.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Pacman.cs" />
     <Compile Include="pathFinder.cs" />

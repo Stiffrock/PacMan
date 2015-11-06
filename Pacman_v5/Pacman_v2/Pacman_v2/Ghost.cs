@@ -15,14 +15,15 @@ namespace Pacman_v2
     class Ghost : GameObject
     {
         Random rand;
-        int arrayIndexX;
-        int arrayIndexY;
 
         List<Node> path;
+        Vector2 targetDirection;
+        MyStack pathStack;
         int pathLength;
         Node targetNode;
+        GameObject target;
         int pathLeft;
-        int counter;
+        int counter = 20;
 
 
         public Ghost(Texture2D tex, Vector2 pos) : base(tex, pos)
@@ -47,23 +48,6 @@ namespace Pacman_v2
                 srcRecCount ++;
             }
         }  
-  
-
-        public Node getNode()
-        {
-            arrayIndexX = (int)(pos.Y / 20);
-            arrayIndexY = (int)(pos.X / 20);
-
-            try
-            {
-                return Map.nodeArray[arrayIndexX, arrayIndexY];
-            }
-            catch (System.IndexOutOfRangeException)
-            {
-                return null;
-            }
-         
-        }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
@@ -72,31 +56,42 @@ namespace Pacman_v2
 
         public void FindPath()
         {
-            Node node = getNode();
-            for (int i = 0; i < Map.nodeArray.GetLength(0); i++)
-            {
-                for (int j = 0; j < Map.nodeArray.GetLength(1); j++)
-                {
-                    if (Map.nodeArray[i, j].passable == true)
-                    {
-                        targetNode = Map.nodeArray[i, j];
-                        if (targetNode == PacPos)
-                        {
+            //Node node = getNode();
+            //for (int i = 0; i < Map.nodeArray.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < Map.nodeArray.GetLength(1); j++)
+            //    {
+            //        if (Map.nodeArray[i, j].passable == true)
+            //        {
+            //            targetNode = Map.nodeArray[i, j];
+            //            if (targetNode == PacPos)
+            //            {
                             
-                        }
-                    }
-                }
-            }
+            //            }
+            //        }
+            //    }
+            //}
            
             //path = pathFinder.FindPath(getNode(), Map.nodeArray[10, 1]);
-            path = pathFinder.FindPath(getNode(), targetNode);
-
-            if (path == null)
+            //path = pathFinder.FindPath(getNode(), targetNode);
+            //targetNode = Map.nodeArray[1, 1];
+            if (target == null)
                 return;
-            pathLength = path.Count();
-            pathLeft = pathLength - 1;
-            targetNode = path[pathLeft];
-            
+
+            Node n = getNode();
+            Node m = target.getNode();
+            pathStack = pathFinder.FindPath(n, target.getNode());
+            //pathStack = pathFinder.FindPath(n, Map.nodeArray[2, 14]);
+
+            if (pathStack == null || pathStack.Count() == 0)
+                return;
+            targetNode = (Node)pathStack.Pop();
+            targetDirection = new Vector2(targetNode.X, targetNode.Y) - new Vector2(n.X, n.Y);
+
+            if (targetDirection != Vector2.Zero)
+                targetDirection.Normalize();
+            else
+                targetDirection = Vector2.Zero;
         }
 
         void GoToNextNode()
@@ -113,30 +108,51 @@ namespace Pacman_v2
         }
 
         void MoveToTargetNode()
-        {         
-            if (path == null)
+        {
+            if (targetNode == null)
+            {
+                //FindPath();
                 return;
-           // Node currentNode = getNode();
-            Node currentNode = targetNode.parent;
-            Vector2 direction = new Vector2(targetNode.X, targetNode.Y) - new Vector2(currentNode.X, currentNode.Y);
-            direction.Normalize();
-         //   pos += direction;
-
-            if ( pathLeft != 0)
-            {
-                rec.X += (int)direction.Y;
-                rec.Y += (int)direction.X;
-                counter += 1;
-
             }
-     
-            if (counter == 19 && pathLeft != 0)
+
+            Node n = getNode();
+            if (counter == 20)
             {
-                currentNode = targetNode;
-                GoToNextNode();
+                if(pathStack == null || pathStack.Count() == 0)
+                    FindPath();
+
+                rec.X = targetNode.Y * 20;
+                rec.Y = targetNode.X * 20;
+
+                if (pathStack != null && pathStack.Count() != 0)
+                    targetNode = (Node)pathStack.Pop();
+
+                targetDirection = new Vector2(targetNode.X, targetNode.Y) - new Vector2(n.X, n.Y);
+                if (targetDirection != Vector2.Zero)
+                    targetDirection.Normalize();
                 counter = 0;
-                Console.WriteLine(pathLeft.ToString());
             }
+            else
+            {
+                rec.X += (int)targetDirection.Y;
+                rec.Y += (int)targetDirection.X;
+                counter++;
+            }
+            //if ( pathLeft != 0)
+            //{
+            //    rec.X += (int)targetDirection.Y;
+            //    rec.Y += (int)targetDirection.X;
+            //    counter += 1;
+
+            //}
+     
+            //if (counter == 19 && pathLeft != 0)
+            //{
+            //    currentNode = targetNode;
+            //    GoToNextNode();
+            //    counter = 0;
+            //    Console.WriteLine(pathLeft.ToString());
+            //}
 
          /*   if (currentNode == targetNode)
                 GoToNextNode();
@@ -145,9 +161,11 @@ namespace Pacman_v2
  
 
         }
-
+        public void SetTarget(GameObject target)
+        {
+            this.target = target;
+        }
         public override void Update()
-        
         {
             MoveToTargetNode();
             //if (currentDirection == Direction.Default)

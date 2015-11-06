@@ -56,6 +56,7 @@ namespace Pacman_v2
         { 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {Exit();}
+            
             map.Update(gameTime);
             base.Update(gameTime);
         }
@@ -64,8 +65,9 @@ namespace Pacman_v2
         {
            
             GraphicsDevice.Clear(Color.Black);
-                    
+            
             map.Draw(spriteBatch);
+
 
             base.Draw(gameTime);
         }
