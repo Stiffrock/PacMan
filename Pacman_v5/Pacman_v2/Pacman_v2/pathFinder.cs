@@ -7,7 +7,7 @@ namespace Pacman_v2
 {
     static class pathFinder
     {     
-        static private List<Node> GetNeighbours(Node node)
+        static private List<Node> GetNeighbours(Node node) // Använder nodens index och söker de fyra positionerna runt sig (n, s, w, e) och lägger dem i en lista. Den gör bara detta om den är inom banans scope.
         {
             List<Node> neighbours = new List<Node>();
             int x = node.X;
@@ -23,7 +23,7 @@ namespace Pacman_v2
             return neighbours;
         }
 
-        static void ResetNodes()
+        static void ResetNodes() // Sätter besökta noder till obesökta och rensar alla kopplingar i noderna.
         {
             foreach(Node n in Map.nodeArray)
             {
@@ -32,7 +32,8 @@ namespace Pacman_v2
             }
         }
 
-        static public MyStack FindPath(Node startNode, Node goalNode)
+        static public MyStack FindPath(Node startNode, Node goalNode) //En bredden först sökning som öppnar alla noder som läggs i neighbour och om de inte redan är besökta och går att passeera läggs den i en separat lista.
+                                                                      //Om den träffar målnoden går den tillbaka längs vägen genom att kolla på nodens förälder och hela tiden pusha den noden till stacken.
         {
             ResetNodes();
             Node currentNode = startNode;
@@ -50,11 +51,9 @@ namespace Pacman_v2
                     {
                         if (currentNode == startNode)
                             break;
-                        //path.Add(currentNode);
                         pathStack.Push(currentNode);
                         currentNode = currentNode.parent;
                     }
-                 //   return path;
                     return pathStack;
                 }
 

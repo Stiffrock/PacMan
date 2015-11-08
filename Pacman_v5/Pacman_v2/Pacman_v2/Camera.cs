@@ -16,20 +16,12 @@ namespace Pacman_v2
         int windowSizeX = 800;
         int windowSizeY = 744;
         float X, Y;
-        float adjustX, adjustY;
-        float maxAdjust = 24;
-        float adjustSpeed = 2f;
+
         public float zoom = 2.5f;
 
         public Camera(Viewport newView)
         {
             view = newView;
-
-            //pacmans "camera centreposition"
-            X = 0;
-            Y = 0;
-            adjustX = 0;
-            adjustY = 0;
         }
 
         public void Update(Vector2 playerPos, GameWindow gameWindow)
